@@ -3,7 +3,7 @@ import java.util.Objects;
 
 public class Order {
     String customer;
-    Product[] basket = new Product[2];
+    Product[] basket;
 
     public Order(String customer, Product[] basket) {
         this.customer = customer;
@@ -17,14 +17,32 @@ public class Order {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj)
+        if (this == obj) {
             return true;
+        }
 
         if (obj == null || getClass() != obj.getClass()) {
             return false;
         }
         Order otherOrder = (Order) obj;
-        return Objects.equals(customer, otherOrder.customer) && Arrays.equals(basket, otherOrder.basket);
-
+        if (!Objects.equals(customer, otherOrder.customer)) {
+            return false;
+        }
+        if (basket == null && otherOrder.basket == null) {
+            return true;
+        }
+        if (basket == null || otherOrder.basket == null) {
+            return false;
+        }
+        if (basket.length != otherOrder.basket.length) {
+            return false;
+        }
+        for (int i = 0; i < basket.length; i++) {
+            if (!Objects.equals(basket[i], otherOrder.basket[i])) {
+                return false;
+            }
+        }
+        return true;
+        //return Objects.equals(customer, otherOrder.customer) && Arrays.equals(basket, otherOrder.basket);
     }
 }

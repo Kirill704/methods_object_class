@@ -17,15 +17,20 @@ public class Main {
         System.out.println(product2.toString());
         System.out.println(product4.toString());
         System.out.println(product2.equals(product4));
-        Product[] basket = new Product[2];
+        Product[] basket;
         Order order1 = new Order("B.Clinton", basket = new Product[]{product2, product3});
         Order order2 = new Order("S.Holmes", basket = new Product[]{product4, product1});
         Order order3 = new Order("B.Clinton", basket = new Product[]{product2, product1});
+        Order order4 = new Order("B.Clinton", basket = new Product[]{product2, product1, product4});
         System.out.println(order1.toString());
         System.out.println(order2.toString());
         System.out.println(order1.equals(order2));
         System.out.println(order1.toString());
         System.out.println(order3.toString());
         System.out.println(order1.equals(order3));
+        System.out.println(order3.toString());
+        System.out.println(order4.toString());
+        System.out.println(order4.equals(order3));
+
     }
 }

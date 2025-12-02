@@ -28,21 +28,20 @@ public class Order {
         if (!Objects.equals(customer, otherOrder.customer)) {
             return false;
         }
-        if (basket == null && otherOrder.basket == null) {
-            return true;
-        }
-        if (basket == null || otherOrder.basket == null) {
-            return false;
-        }
         if (basket.length != otherOrder.basket.length) {
             return false;
         }
         for (int i = 0; i < basket.length; i++) {
+            if (basket[i] == null && otherOrder.basket[i] == null) {
+                return true;
+            }
+            if (basket[i] == null || otherOrder.basket[i] == null) {
+                return false;
+            }
             if (!Objects.equals(basket[i], otherOrder.basket[i])) {
                 return false;
             }
         }
         return true;
-        //return Objects.equals(customer, otherOrder.customer) && Arrays.equals(basket, otherOrder.basket);
     }
 }

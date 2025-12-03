@@ -32,13 +32,13 @@ public class Order {
             return false;
         }
         for (int i = 0; i < basket.length; i++) {
-            if (basket[i] == null && otherOrder.basket[i] == null) {
-                return true;
-            }
+           // if (basket[i] == null && otherOrder.basket[i] == null) {
+          //      return true;
+          //  }
             if (basket[i] == null || otherOrder.basket[i] == null) {
                 return false;
             }
-            if (!Objects.equals(basket[i], otherOrder.basket[i])) {
+            if (!basket[i].equals(otherOrder.basket[i])) {
                 return false;
             }
         }
